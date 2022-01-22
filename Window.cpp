@@ -1,7 +1,5 @@
 #include "Window.h"
 
-//Window* window=nullptr;
-
 Window::Window()
 {
 

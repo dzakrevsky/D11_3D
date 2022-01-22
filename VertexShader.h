@@ -3,6 +3,7 @@
 
 class GraphicsEngine;
 class DeviceContext;
+
 class VertexShader
 {
 public:
