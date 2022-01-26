@@ -1,5 +1,6 @@
 #pragma once
-#include<d3d11.h>
+#include <d3d11.h>
+
 
 class GraphicsEngine;
 class DeviceContext;
@@ -18,4 +19,3 @@ private:
 	friend class GraphicsEngine;
 	friend class DeviceContext;
 };
-

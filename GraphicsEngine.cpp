@@ -5,8 +5,9 @@
 #include "IndexBuffer.h"
 #include "ConstantBuffer.h"
 #include "VertexShader.h"
-#include <d3dcompiler.h>
 #include "PixelShader.h"
+
+#include <d3dcompiler.h>
 
 GraphicsEngine::GraphicsEngine()
 {
@@ -67,6 +68,7 @@ bool GraphicsEngine::release()
 
 	m_imm_device_context->release();
 
+
 	m_d3d_device->Release();
 	return true;
 }
@@ -104,22 +106,26 @@ ConstantBuffer* GraphicsEngine::createConstantBuffer()
 VertexShader* GraphicsEngine::createVertexShader(const void* shader_byte_code, size_t byte_code_size)
 {
 	VertexShader* vs = new VertexShader();
+
 	if (!vs->init(shader_byte_code, byte_code_size))
 	{
 		vs->release();
 		return nullptr;
 	}
+
 	return vs;
 }
 
 PixelShader* GraphicsEngine::createPixelShader(const void* shader_byte_code, size_t byte_code_size)
 {
 	PixelShader* ps = new PixelShader();
+
 	if (!ps->init(shader_byte_code, byte_code_size))
 	{
 		ps->release();
 		return nullptr;
 	}
+
 	return ps;
 }
 
@@ -128,7 +134,7 @@ bool GraphicsEngine::compileVertexShader(const wchar_t* file_name, const char* e
 	ID3DBlob* error_blob = nullptr;
 	if (!SUCCEEDED(D3DCompileFromFile(file_name, nullptr, nullptr, entry_point_name, "vs_5_0", 0, 0, &m_blob, &error_blob)))
 	{
-		if(error_blob) error_blob->Release();
+		if (error_blob) error_blob->Release();
 		return false;
 	}
 
@@ -157,6 +163,7 @@ void GraphicsEngine::releaseCompiledShader()
 {
 	if (m_blob)m_blob->Release();
 }
+
 
 
 GraphicsEngine* GraphicsEngine::get()
