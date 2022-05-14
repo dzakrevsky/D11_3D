@@ -23,7 +23,7 @@ float4 psmain(PS_INPUT input) : SV_TARGET
 	float4 earth_color = EarthColor.Sample(EarthColorSampler, 1.0 - input.texcoord);
 
 	//AMBIENT LIGHT
-	float ka = 1.5;
+	float ka = 1.2;
 	float3 ia = float3(0.09, 0.082, 0.082); // white color
 	ia *= earth_color.rgb;
 	float3 ambient_light = ka * ia;
