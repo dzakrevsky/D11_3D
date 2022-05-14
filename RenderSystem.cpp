@@ -59,6 +59,8 @@ RenderSystem::~RenderSystem()
 	m_dxgi_device->Release();
 	m_dxgi_adapter->Release();
 	m_dxgi_factory->Release();
+	m_cull_back_state->Release();
+	m_cull_front_state->Release();
 
 	m_d3d_device->Release();
 }
@@ -74,7 +76,6 @@ SwapChainPtr RenderSystem::createSwapChain(HWND hwnd, UINT width, UINT height)
 	return sc;
 }
 
-//ShowVideoPtr ShowVideo
 
 DeviceContextPtr RenderSystem::getImmediateDeviceContext()
 {
@@ -187,6 +188,7 @@ void RenderSystem::initRasterizerState()
 	desc.DepthClipEnable = true;
 	desc.FillMode = D3D11_FILL_SOLID;
 	m_d3d_device->CreateRasterizerState(&desc, &m_cull_front_state);
+
 	desc.CullMode = D3D11_CULL_BACK;
 	m_d3d_device->CreateRasterizerState(&desc, &m_cull_back_state);
 }

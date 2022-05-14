@@ -9,10 +9,7 @@ VertexShader::VertexShader(const void* shader_byte_code, size_t byte_code_size,R
 
 }
 
-
 VertexShader::~VertexShader()
 {
 	m_vs->Release();
 }
-
-

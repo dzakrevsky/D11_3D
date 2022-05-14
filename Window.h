@@ -8,9 +8,9 @@ class Window
 public:
 	//Initialize the window
 	Window();
-
-
-
+	
+	
+	
 
 	bool isRun();
 
@@ -34,3 +34,4 @@ protected:
 	bool m_is_run;
 	bool m_is_init = false;
 };
+
